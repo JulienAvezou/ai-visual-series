@@ -1,0 +1,58 @@
+import { BottleneckStage } from "@/lib/types";
+
+export const aiHardwareBottlenecks: BottleneckStage[] = [
+  {
+    id: "compute",
+    label: "Compute",
+    trainingSeverity: 5,
+    inferenceSeverity: 3,
+    fact: "Frontier model training runs are gated by access to accelerator fleets.",
+    why: "Training requires sustained multi-week access to large synchronized clusters.",
+    insight: "Owning or reserving scarce compute is now strategic advantage.",
+  },
+  {
+    id: "memory",
+    label: "Memory",
+    trainingSeverity: 5,
+    inferenceSeverity: 4,
+    fact: "HBM supply growth remains narrower than total accelerator demand growth.",
+    why: "Memory bandwidth dictates throughput for both large training and high-QPS inference.",
+    insight: "Memory, not transistor count, increasingly constrains delivered performance.",
+  },
+  {
+    id: "packaging",
+    label: "Packaging",
+    trainingSeverity: 4,
+    inferenceSeverity: 3,
+    fact: "Advanced packaging lines are one of the tightest capacity points in AI hardware.",
+    why: "Chiplets and stacked memory designs rely on specialized packaging processes.",
+    insight: "Backend innovation has become as critical as front-end process shrinks.",
+  },
+  {
+    id: "networking",
+    label: "Networking",
+    trainingSeverity: 4,
+    inferenceSeverity: 3,
+    fact: "Distributed jobs need ultra-fast network fabrics to avoid communication stalls.",
+    why: "As clusters scale, synchronization overhead can dominate step time.",
+    insight: "Interconnect quality defines practical scaling law efficiency.",
+  },
+  {
+    id: "power",
+    label: "Power",
+    trainingSeverity: 3,
+    inferenceSeverity: 4,
+    fact: "New AI campuses increasingly compete for grid upgrades and power purchase capacity.",
+    why: "Inference at scale runs continuously, creating durable high-baseload demand.",
+    insight: "Energy procurement is now part of AI product strategy.",
+  },
+  {
+    id: "cooling",
+    label: "Cooling",
+    trainingSeverity: 3,
+    inferenceSeverity: 4,
+    fact: "High-density deployments are pushing rapid adoption of liquid cooling architectures.",
+    why: "Thermal limits cap sustained performance and rack-level capacity.",
+    insight: "Thermal engineering is a first-order determinant of usable compute.",
+  },
+];

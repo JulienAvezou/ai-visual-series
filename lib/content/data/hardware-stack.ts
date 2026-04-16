@@ -1,0 +1,68 @@
+import { HardwareLayer } from "@/lib/types";
+
+export const hardwareStackCore: HardwareLayer[] = [
+  {
+    id: "gpu",
+    label: "GPU",
+    what: "Parallel processors that handle matrix-heavy AI workloads.",
+    why: "Training frontier models requires massive parallel compute throughput.",
+    keyFact: "Modern training clusters can deploy tens of thousands of GPUs in one run.",
+    bottleneckInsight: "GPU supply cadence controls how fast new model capacity can scale.",
+  },
+  {
+    id: "cpu",
+    label: "CPU",
+    what: "General-purpose compute that orchestrates data movement and system control.",
+    why: "CPUs feed and schedule accelerators across a distributed training job.",
+    keyFact: "Under-provisioned CPUs can leave expensive accelerators waiting idle.",
+    bottleneckInsight: "AI clusters fail when orchestration throughput lags accelerator demand.",
+  },
+  {
+    id: "hbm",
+    label: "HBM",
+    what: "High-bandwidth memory stacked close to compute dies.",
+    why: "Model performance increasingly depends on memory bandwidth and capacity.",
+    keyFact: "HBM demand has outpaced the number of qualified advanced packaging lines.",
+    bottleneckInsight: "Memory limits can cap training efficiency before compute is saturated.",
+  },
+  {
+    id: "packaging",
+    label: "Packaging",
+    what: "Advanced assembly that links multiple chips and memory into one module.",
+    why: "Cutting-edge AI chips depend on complex 2.5D/3D integration techniques.",
+    keyFact: "CoWoS-style advanced packaging availability has become a top capacity constraint.",
+    bottleneckInsight: "Packaging queues can delay delivery despite wafer availability.",
+  },
+  {
+    id: "networking",
+    label: "Networking",
+    what: "High-speed interconnect fabrics that synchronize distributed training.",
+    why: "Without low-latency fabrics, multi-GPU scaling efficiency collapses.",
+    keyFact: "Large clusters may move terabytes per second across east-west network traffic.",
+    bottleneckInsight: "Networking defines practical cluster size, not theoretical FLOPs.",
+  },
+  {
+    id: "storage",
+    label: "Storage",
+    what: "Data and checkpoint systems feeding the training and inference pipeline.",
+    why: "AI data pipelines need sustained high-throughput reads and writes.",
+    keyFact: "Slow storage creates expensive idle time during data loading and checkpointing.",
+    bottleneckInsight: "I/O stalls can erase gains from faster accelerator generations.",
+  },
+  {
+    id: "power",
+    label: "Power",
+    what: "Electrical infrastructure converting and delivering stable energy to clusters.",
+    why: "High-density racks demand huge, reliable power at low interruption risk.",
+    keyFact: "Top AI data centers are planned around megawatt-scale increments.",
+    bottleneckInsight: "Grid and substation lead times can outlast hardware procurement cycles.",
+  },
+  {
+    id: "cooling",
+    label: "Cooling",
+    what: "Thermal systems that dissipate heat from dense accelerator deployments.",
+    why: "Heat management dictates sustained performance and hardware longevity.",
+    keyFact: "Liquid cooling adoption is accelerating as rack power density rises.",
+    bottleneckInsight: "Thermal constraints can force downclocking long before peak nameplate compute.",
+  },
+];
